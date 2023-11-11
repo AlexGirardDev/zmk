@@ -288,9 +288,16 @@ static void zmk_rgb_underglow_effect_kinesis() {
         pixels[2].b = 0;
         break;
     case 1:
+        pixels[0].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+        pixels[0].g = 0;
+        pixels[0].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+        pixels[1].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+        pixels[1].g = 0;
+        pixels[1].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
         pixels[2].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
-        pixels[2].g = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+        pixels[2].g = 0;
         pixels[2].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+        return;
         break;
     case 2:
         pixels[2].r = 0;
@@ -435,22 +442,22 @@ static void zmk_rgb_underglow_effect_kinesis() {
 #endif
 }
 
-static void zmk_rgb_underglow_effect_kinesis_alex() {
-
-if (zmk_hid_indicators_get_current_profile().layer == 1) {
-    pixels[0].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
-    pixels[0].g = 0;
-    pixels[0].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
-    pixels[1].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
-    pixels[1].g = 0;
-    pixels[1].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
-    pixels[2].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
-    pixels[2].g = 0;
-    pixels[2].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
-    return;
-} else {
-    zmk_rgb_underglow_effect_kinesis();
-}
+// static void zmk_rgb_underglow_effect_kinesis_alex() {
+//
+// if (zmk_hid_indicators_get_current_profile().layer == 1) {
+//     pixels[0].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+//     pixels[0].g = 0;
+//     pixels[0].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+//     pixels[1].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+//     pixels[1].g = 0;
+//     pixels[1].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+//     pixels[2].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+//     pixels[2].g = 0;
+//     pixels[2].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+//     return;
+// } else {
+//     zmk_rgb_underglow_effect_kinesis();
+// }
 //#else
 //    zmk_rgb_underglow_effect_kinesis();
 //#endif
@@ -550,7 +557,7 @@ static void zmk_rgb_underglow_tick(struct k_work *work) {
         zmk_rgb_underglow_effect_swirl();
         break;
     case UNDERGLOW_EFFECT_KINESIS:
-        zmk_rgb_underglow_effect_kinesis_alex();
+        zmk_rgb_underglow_effect_kinesis();
         break;
     case UNDERGLOW_EFFECT_BATTERY:
         zmk_rgb_underglow_effect_battery();
