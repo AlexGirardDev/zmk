@@ -437,12 +437,7 @@ static void zmk_rgb_underglow_effect_kinesis() {
 
 static void zmk_rgb_underglow_effect_kinesis_alex() {
 
-old_led_data.layer = led_data.layer;
-old_led_data.indicators = led_data.indicators;
-led_data.indicators = zmk_hid_indicators_get_current_profile();
-led_data.layer = zmk_keymap_highest_layer_active();
-//#if ZMK_BLE_IS_CENTRAL
-if (led_data.layer == 1) {
+if (zmk_hid_indicators_get_current_profile().layer == 1) {
     pixels[0].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
     pixels[0].g = 0;
     pixels[0].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
