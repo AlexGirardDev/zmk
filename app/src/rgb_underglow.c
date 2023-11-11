@@ -436,6 +436,8 @@ static void zmk_rgb_underglow_effect_kinesis() {
 }
 
 static void zmk_rgb_underglow_effect_kinesis_alex() {
+
+#if ZMK_BLE_IS_CENTRAL
     if (led_data.layer == 1) {
         pixels[0].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
         pixels[0].g = 0;
@@ -450,6 +452,9 @@ static void zmk_rgb_underglow_effect_kinesis_alex() {
     } else {
         zmk_rgb_underglow_effect_kinesis();
     }
+#else
+    zmk_rgb_underglow_effect_kinesis();
+#endif
 }
 
 static void zmk_rgb_underglow_effect_test() {
