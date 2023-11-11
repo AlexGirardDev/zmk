@@ -232,7 +232,7 @@ static void zmk_rgb_underglow_effect_kinesis_alex() {
         pixels[2].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
         return;
     } else {
-        zmk_rgb_underglow_effect_kinesis()
+        zmk_rgb_underglow_effect_kinesis();
     }
 }
 
