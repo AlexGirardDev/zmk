@@ -219,22 +219,6 @@ static void zmk_rgb_underglow_central_send() {
 }
 #endif
 
-static void zmk_rgb_underglow_effect_kinesis_alex() {
-    if (led_data.layer == 1) {
-        pixels[0].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
-        pixels[0].g = 0;
-        pixels[0].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
-        pixels[1].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
-        pixels[1].g = 0;
-        pixels[1].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
-        pixels[2].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
-        pixels[2].g = 0;
-        pixels[2].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
-        return;
-    } else {
-        zmk_rgb_underglow_effect_kinesis();
-    }
-}
 
 static void zmk_rgb_underglow_effect_kinesis() {
 #if ZMK_BLE_IS_CENTRAL
@@ -449,6 +433,23 @@ static void zmk_rgb_underglow_effect_kinesis() {
     }
 #endif
 #endif
+}
+
+static void zmk_rgb_underglow_effect_kinesis_alex() {
+    if (led_data.layer == 1) {
+        pixels[0].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+        pixels[0].g = 0;
+        pixels[0].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+        pixels[1].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+        pixels[1].g = 0;
+        pixels[1].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+        pixels[2].r = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+        pixels[2].g = 0;
+        pixels[2].b = CONFIG_ZMK_RGB_UNDERGLOW_BRT_SCALE;
+        return;
+    } else {
+        zmk_rgb_underglow_effect_kinesis();
+    }
 }
 
 static void zmk_rgb_underglow_effect_test() {
