@@ -461,7 +461,7 @@ static void zmk_rgb_underglow_effect_kinesis() {
 //#else
 //    zmk_rgb_underglow_effect_kinesis();
 //#endif
-}
+//}
 
 static void zmk_rgb_underglow_effect_test() {
     triggered = true;
