@@ -72,7 +72,7 @@ static void reset_timer(struct behavior_turbo_data *data, struct zmk_behavior_bi
 
 static void behavior_turbo_timer_handler(struct k_work *item) {
     struct behavior_turbo_data *data =
-        CONTAINER_OF(item, struct behavior_turbo_data, release_timer);
+        CONTAINER_OF(item, struct behavior_turbo_data, release_timer.work);
     if (!data->is_active) {
         return;
     }
